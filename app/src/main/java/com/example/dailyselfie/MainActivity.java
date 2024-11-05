@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -98,22 +99,23 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.delete_selected:
-//                // Xóa ảnh được chọn
-//                return true;
-//            case R.id.delete_all:
-//                // Xóa tất cả ảnh
-//                selfieList.clear();
-//                adapter.notifyDataSetChanged();
-//                return true;
-//            case R.id.camera:
-//                openCamera();
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId(); // Lấy ID của item
+
+        if (id == R.id.delete_selected) {
+            // Xóa ảnh được chọn
+            return true;
+        } else if (id == R.id.delete_all) {
+            // Xóa tất cả ảnhD
+            selfieList.clear();
+            adapter.notifyDataSetChanged();
+            return true;
+        } else if (id == R.id.camera) {
+            openCamera();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
