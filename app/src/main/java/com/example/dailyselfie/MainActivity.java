@@ -1,16 +1,14 @@
 package com.example.dailyselfie;
 
-import static android.provider.MediaStore.ACTION_IMAGE_CAPTURE;
-
 import android.Manifest;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.pm.PackageManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Menu;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -56,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void openCamera() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (cameraIntent.resolveActivity(getPackageManager()) != null) {
+        try {
             startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE);
-        } else {
+        } catch (ActivityNotFoundException e) {
             Toast.makeText(this, "No camera app found", Toast.LENGTH_SHORT).show();
         }
     }
