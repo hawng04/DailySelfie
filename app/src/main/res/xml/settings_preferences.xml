@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="timer_duration"
+        android:title="Thời gian hẹn giờ (phút)"
+        android:summary="Nhập số phút"
+        android:inputType="number"
+        android:defaultValue="10" />
+</PreferenceScreen>
